@@ -1,30 +1,87 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.encabezado}>
-        <Text style={styles.texto}>X</Text>
-        <Text style={styles.texto}>Nombre</Text>
-        <Text style={styles.texto}>X</Text>
-      </View>
-      <View style={styles.contenido}>
-        <Text>Proyecto de 5B</Text>
-      </View>
-      <View style={styles.pie}>
-        <Text>Pie de app</Text>
-      </View>
-      
+      <Encabezado/>
+      <Cuerpo/>
+      <Pie3 opA={'x'} opD={'g'} opB={'m'} opC={'h'}/>
+      <Pie2 op1='M' op2='E' op3='C' op4='F'/>
+      <Pie/>
       <StatusBar style="auto" />
     </View>
   );
 }
 
+export const Encabezado=()=>{
+  return(
+    <View style={styles.encabezado}>
+        <Text style={styles.texto}>X</Text>
+        <Text style={styles.texto}>Nombre</Text>
+        <Text style={styles.texto}>X</Text>
+    </View>
+  )
+}
+
+export function Cuerpo(){
+  return(
+    <View style={styles.contenido}>
+        <Text style={styles.texto}>Proyecto de 5B</Text>
+        <Login/>
+    </View>
+  )
+}
+
+export const Pie=()=>{
+  return(
+    <View style={styles.pie}>
+        <Text style={styles.texto}>X</Text>
+        <Text style={styles.texto}>X</Text>
+        <Text style={styles.texto}>X</Text>
+        <Text style={styles.texto}>X</Text>
+    </View>
+  )
+}
+
+export const Pie2=(props)=>{
+  return(
+    <View style={styles.pie}>
+        <Text style={styles.texto}>{props.op1}</Text>
+        <Text style={styles.texto}>{props.op2}</Text>
+        <Text style={styles.texto}>{props.op3}</Text>
+        <Text style={styles.texto}>{props.op4}</Text>
+    </View>
+  )
+}
+
+export const Pie3=({opA,opB,opC,opD})=>{
+  return(
+    <View style={styles.pie}>
+        <Text style={styles.texto}>{opA}</Text>
+        <Text style={styles.texto}>{opB}</Text>
+        <Text style={styles.texto}>{opC}</Text>
+        <Text style={styles.texto}>{opD}</Text>
+    </View>
+  )
+}
+export const Login=()=>{
+  return(
+    <View>
+      <Text>Login...</Text>
+      <TextInput />
+      <Text>Password...</Text>
+      <TextInput/>
+      <Button title='Login'/>
+      <Button title='Cancel'/>
+    </View>
+  )
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 10,
-    backgroundColor: '#ffaa55',
+    backgroundColor: '#753c15',
     alignItems: 'center',
     justifyContent: 'center',
     alignItems:'stretch'
@@ -32,23 +89,20 @@ const styles = StyleSheet.create({
   encabezado:{
     flex:1,
     flexDirection:'row',
-    borderColor:"#fff",
-    borderWidth:1,
     justifyContent:'space-between',
-    alignItems:'center'
+    alignItems:'center',
+    backgroundColor:'#c09a7e',
     
   },
   pie:{
     flex:1,
-    borderColor:"#fff",
-    borderWidth:1,
-
-    justifyContent:'center'
+    flexDirection:'row',
+    backgroundColor:'#c09a7e',
+    justifyContent:'space-evenly',
+    alignItems:'center'
   },
   contenido:{
     flex:8,
-    borderColor:"#fff",
-    borderWidth:1,
     justifyContent:'center',
     alignItems:'center'
   },
