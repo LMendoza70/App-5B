@@ -1,13 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Encabezado/>
       <Cuerpo/>
-      <Pie3 opA={'x'} opD={'g'} opB={'m'} opC={'h'}/>
-      <Pie2 op1='M' op2='E' op3='C' op4='F'/>
       <Pie/>
       <StatusBar style="auto" />
     </View>
@@ -69,16 +67,39 @@ export const Login=()=>{
   return(
     <View>
       <Text>Login...</Text>
-      <TextInput />
+      <TextInput placeholder='Hola soy un placeholder'
+      autoCapitalize='words'
+      enterKeyHint='search'
+      inputMode='numeric'
+      />
       <Text>Password...</Text>
-      <TextInput/>
+      <TextInput value='Hola no soy un placeholder' 
+      keyboardType='numeric'
+      secureTextEntry={true}
+      />
       <Button title='Login'/>
       <Button title='Cancel'/>
+      <Boton Texto={'Login'} Logo={require('./assets/react.png')} Color={'red'}/>
+      <Boton Texto={'Cancel'} Logo={require('./assets/favicon.png')} Color={'blue'}/>
     </View>
   )
 }
 
+export const Boton=({Texto,Logo,Color})=>{
+  return(
+    <Pressable style={[styles.boton, {backgroundColor:Color}]} >
+      <Image style={styles.imagenB} source={Logo} />
+      <Text style={styles.textoB}>{Texto}</Text>
+    </Pressable>
+  )
+}
+
 const styles = StyleSheet.create({
+  imagenB:{
+    height:33,
+    width:30,
+    marginEnd:10
+  },
   container: {
     flex: 10,
     backgroundColor: '#753c15',
@@ -109,5 +130,36 @@ const styles = StyleSheet.create({
   texto:{
     color:"#fff",
     fontSize:30
+  },
+  textoB:{
+    color:'white',
+    fontSize:18
+  },
+  boton:{
+    flexDirection:'row',
+    backgroundColor:'#72b6c9',
+    padding:5,
+    margin:3,
+    alignItems:'center',
+    justifyContent:'center',
+    borderColor:'#c09a7e',
+    borderWidth:1,
+    borderRadius:5
   }
 });
+/*
+<Pressable
+onPress={() => {
+  setTimesPressed(current => current + 1);
+}}
+style={({pressed}) => [
+  {
+    backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
+  },
+  styles.wrapperCustom,
+]}>
+{({pressed}) => (
+  <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>
+)}
+</Pressable>
+*/
