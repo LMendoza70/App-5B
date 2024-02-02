@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, Button, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   return (
@@ -79,15 +79,41 @@ export const Login=()=>{
       />
       <Button title='Login'/>
       <Button title='Cancel'/>
-      <Boton Texto={'Login'} Logo={require('./assets/react.png')} Color={'red'}/>
-      <Boton Texto={'Cancel'} Logo={require('./assets/favicon.png')} Color={'blue'}/>
+      
+      <Boton 
+      Texto={'Login'} 
+      Logo={require('./assets/react.png')} 
+      ColorA={'#cc55aa'}
+      ColorB={'#aa22ff'}
+      accion={()=>Alert.alert('Soy el boton rosita')}/>
+      
+      <Boton 
+      Texto={'Cancel'} 
+      Logo={require('./assets/favicon.png')} 
+      ColorA={'#aacc55'}
+      ColorB={'#88aa22'}
+      accion={()=>Alert.alert('Yo soy verde')}/>
+
+      <Boton
+      accion={()=>Alert.alert('Yo soy el tercer boton')}
+      Texto={'Tercer Boton'}
+      ColorA={'red'}
+      ColorB={'blue'}
+      Logo={require('./assets/icon.png')}/>
     </View>
   )
 }
 
-export const Boton=({Texto,Logo,Color})=>{
+
+export const Boton=({Texto,Logo,ColorA,ColorB,accion})=>{
   return(
-    <Pressable style={[styles.boton, {backgroundColor:Color}]} >
+    <Pressable 
+    style={({pressed})=>[{
+      backgroundColor:pressed?ColorA:ColorB,
+      margin:pressed?9:3
+    },styles.boton]} 
+    onPress={accion}
+    >
       <Image style={styles.imagenB} source={Logo} />
       <Text style={styles.textoB}>{Texto}</Text>
     </Pressable>
@@ -137,9 +163,7 @@ const styles = StyleSheet.create({
   },
   boton:{
     flexDirection:'row',
-    backgroundColor:'#72b6c9',
     padding:5,
-    margin:3,
     alignItems:'center',
     justifyContent:'center',
     borderColor:'#c09a7e',
