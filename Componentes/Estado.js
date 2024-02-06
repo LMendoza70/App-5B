@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Button, StyleSheet, Text, View } from "react-native"
+import { Button, StyleSheet, Text, TextInput, View } from "react-native"
 
 export const Estado=()=>{
     const [contador,setcontador]=useState(0)
@@ -7,8 +7,11 @@ export const Estado=()=>{
     return(
         <View style={estilos.contenedor}>
             <Text style={estilos.texto}>Hola soy el componente</Text>
-            <Button title="ok" onPress={()=>setcontador(contador+1)}/>
+            <Button title="Incremento" onPress={()=>setcontador(contador+1)}/>
             <Text style={estilos.texto}>Contaador : {contador} </Text>
+            <Button title="Decremento" onPress={()=>setcontador(contador-1)}/>
+            <Button title="Asigna" />
+            <TextInput placeholder="Valor del contador" onChangeText={(valor)=> setcontador(valor) }/>
         </View>
     )
 }
