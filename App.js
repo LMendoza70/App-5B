@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { Alert, Button, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Estado } from './Componentes/Estado';
 
 export default function App() {
   return (
@@ -26,7 +27,7 @@ export function Cuerpo(){
   return(
     <View style={styles.contenido}>
         <Text style={styles.texto}>Proyecto de 5B</Text>
-        <Login/>
+        <Estado/>
     </View>
   )
 }
