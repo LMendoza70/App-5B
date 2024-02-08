@@ -11,7 +11,7 @@ export const Estado=()=>{
             <Text style={estilos.texto}>Contaador : {contador} </Text>
             <Button title="Decremento" onPress={()=>setcontador(contador-1)}/>
             <Button title="Asigna" />
-            <TextInput placeholder="Valor del contador" onChangeText={(valor)=> setcontador(valor) }/>
+            <TextInput placeholder="Valor del contador" onChangeText={(valor)=> setcontador( parseInt(valor) ) }/>
         </View>
     )
 }
