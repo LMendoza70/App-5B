@@ -5,6 +5,7 @@ import { Boton } from './Componentes/Atomicos';
 import { Calculadora } from './Componentes/Calculadora';
 import { Login } from './Componentes/Login';
 import Imc from './Componentes/Imc';
+import Producto from './Componentes/Producto';
 
 export default function App() {
   return (
@@ -30,7 +31,7 @@ export const Encabezado=()=>{
 export function Cuerpo(){
   return(
     <View style={styles.contenido}>
-        <Imc/>
+        <Producto/>
     </View>
   )
 }
