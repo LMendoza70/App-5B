@@ -6,6 +6,7 @@ import { Calculadora } from './Componentes/Calculadora';
 import { Login } from './Componentes/Login';
 import Imc from './Componentes/Imc';
 import Producto from './Componentes/Producto';
+import Productos from './Componentes/Productos';
 
 export default function App() {
   return (
@@ -31,7 +32,7 @@ export const Encabezado=()=>{
 export function Cuerpo(){
   return(
     <View style={styles.contenido}>
-        <Producto/>
+        <Productos/>
     </View>
   )
 }
