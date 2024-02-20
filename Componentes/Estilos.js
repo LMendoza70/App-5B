@@ -40,6 +40,19 @@ export const estilos = StyleSheet.create({
         padding:10,
         justifyContent:'space-evenly',
         flexWrap:'wrap'
+      },
+      //propiedades de la card
+      card:{
+        borderColor:'white',
+        borderWidth:2,
+        borderRadius:6,
+        marginVertical:2,
+        flexDirection:'row'
+      },
+      //estilos app clima
+      ContainerClima:{
+        backgroundColor:'#4b73ec',
+        flex:1
       }
 
 })

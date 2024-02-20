@@ -1,5 +1,6 @@
 import { View, Text, ActivityIndicator, Image, FlatList } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { estilos } from './Estilos'
 
 const Productos = () => {
     const [data,setData]=useState([])
@@ -41,11 +42,13 @@ const Productos = () => {
 
     const Card=({title,price,image})=>{
         return(
-            <View>
-                <Text>Producto {title}</Text>
-                <Text>Precio ${price}MXN</Text>
+            <View style={estilos.card}>
                 <Image style={{height:70,width:70}}
                 source={{uri:image}}/>
+                <View style={{flexDirection:'column'}}>
+                    <Text>Producto {title}</Text>
+                    <Text>Precio ${price}MXN</Text>
+                </View>
             </View>
         )
     }
