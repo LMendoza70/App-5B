@@ -53,6 +53,12 @@ export const estilos = StyleSheet.create({
       ContainerClima:{
         backgroundColor:'#4b73ec',
         flex:1
-      }
+      },
+      container: {
+        flex: 10,
+        backgroundColor: '#c09a7e',
+        justifyContent: 'center',
+        alignItems:'stretch'
+      },
 
 })

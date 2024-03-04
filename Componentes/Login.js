@@ -1,9 +1,11 @@
 import {View, Text, TextInput, Button} from 'react-native'
-import { Boton } from './Atomicos'
+import { estilos } from './Estilos'
+import { useNavigation } from '@react-navigation/native'
 
 export const Login=()=>{
+  const nav=useNavigation()
     return(
-      <View>
+      <View style={estilos.container}>
         <Text>Login...</Text>
         <TextInput placeholder='Hola soy un placeholder'
         autoCapitalize='words'
@@ -15,29 +17,8 @@ export const Login=()=>{
         keyboardType='numeric'
         secureTextEntry={true}
         />
-        <Button title='Login'/>
+        <Button title='Login' onPress={()=>nav.navigate('Home')}/>
         <Button title='Cancel'/>
-        
-        <Boton 
-        Texto={'Login'} 
-        Logo={require('../assets/react.png')} 
-        ColorA={'#cc55aa'}
-        ColorB={'#aa22ff'}
-        accion={()=>Alert.alert('Soy el boton rosita')}/>
-        
-        <Boton 
-        Texto={'Cancel'} 
-        Logo={require('../assets/favicon.png')} 
-        ColorA={'#aacc55'}
-        ColorB={'#88aa22'}
-        accion={()=>Alert.alert('Yo soy verde')}/>
-  
-        <Boton
-        accion={()=>Alert.alert('Yo soy el tercer boton')}
-        Texto={'Tercer Boton'}
-        ColorA={'red'}
-        ColorB={'blue'}
-        Logo={require('../assets/icon.png')}/>
       </View>
     )
   }

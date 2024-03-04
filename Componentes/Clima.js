@@ -18,7 +18,7 @@ const Clima = () => {
 
     const UScreen=()=>{
         return(
-            <View>
+            <View style={estilos.container}>
                 <ActivityIndicator size={'large'} color={'darkblue'}/>
                 <Text>Cargando datos</Text>
             </View>
@@ -27,7 +27,7 @@ const Clima = () => {
 
     const LScreen=()=>{
         return(
-            <View>
+            <View style={estilos.container}>
                 <Text>{data.location.name}</Text>
                 <Text>{data.current.temp_c}°</Text>
                 <Text>{data.current.condition.text}  max 

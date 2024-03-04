@@ -1,12 +1,13 @@
 import { View, Text, Image, Alert, ActivityIndicator } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
-const Producto = () => {
+const Producto = ({route}) => {
+    const {id}=route.params
     const [prod,setProd]=useState(null)
     const [load,setLoad]=useState(false)
 
     useEffect(()=>{
-      fetch('https://fakestoreapi.com/products/7')
+      fetch('https://fakestoreapi.com/products/'+id)
       .then((res)=>res.json())
       .then((obj)=>{
         setProd(obj)

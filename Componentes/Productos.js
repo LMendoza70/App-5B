@@ -1,8 +1,10 @@
-import { View, Text, ActivityIndicator, Image, FlatList } from 'react-native'
+import { View, Text, ActivityIndicator, Image, FlatList, Pressable } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { estilos } from './Estilos'
+import { useNavigation } from '@react-navigation/native'
 
 const Productos = () => {
+    const nav=useNavigation()
     const [data,setData]=useState([])
     const [load,setLoad]=useState(false)
 
@@ -24,6 +26,7 @@ const Productos = () => {
                 title={item.title}
                 price={item.price}
                 image={item.image}
+                id={item.id}
                 />}
                 keyExtractor={item=>item.id}
                 />
@@ -40,16 +43,17 @@ const Productos = () => {
         )
     }
 
-    const Card=({title,price,image})=>{
+    const Card=({title,price,image,id})=>{
         return(
-            <View style={estilos.card}>
+            <Pressable style={estilos.card} 
+            onPress={()=>nav.navigate('Producto',{id:id})}>
                 <Image style={{height:70,width:70}}
                 source={{uri:image}}/>
                 <View style={{flexDirection:'column'}}>
                     <Text>Producto {title}</Text>
                     <Text>Precio ${price}MXN</Text>
                 </View>
-            </View>
+            </Pressable>
         )
     }
 
